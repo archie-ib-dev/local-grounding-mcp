@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-grounding-mcp"
+version = "0.1.0.dev0"
+description = "Privacy-first visual grounding fallback with local inference and DOM-visual hybrid routing for MCP browser agents."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Local Grounding MCP contributors" }]
+keywords = ["mcp", "visual-grounding", "browser-agents", "local-inference", "computer-use"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "mcp>=1.28,<2",
+  "torch",
+  "torchvision",
+  "transformers",
+  "pillow",
+  "qwen-vl-utils",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
