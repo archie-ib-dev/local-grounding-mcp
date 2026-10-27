@@ -1,10 +1,10 @@
 {
   "mcpServers": {
     "local-grounding": {
-      "command": "~/.local/bin/local-grounding-mcp",
+      "command": "/Users/YOUR_USERNAME/.local/bin/local-grounding-mcp",
       "env": {
         "GROUNDING_CLIENT": "claude-desktop",
-        "GROUNDING_MODEL_PATH": "~/Models/UGround-V1-2B"
+        "GROUNDING_MODEL_PATH": "/Users/YOUR_USERNAME/Models/UGround-V1-2B"
       }
     }
   }
