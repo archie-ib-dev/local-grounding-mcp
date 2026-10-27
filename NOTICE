@@ -1,0 +1,8 @@
+Local Grounding MCP
+Copyright 2026 archie-ib-dev
+
+This project interoperates with third-party software and separately downloaded
+model weights identified in THIRD_PARTY_NOTICES.md.
+
+No UGround or Qwen2-VL model weights are distributed with this repository.
+Alternative proprietary or commercial rights are not granted by this notice.
