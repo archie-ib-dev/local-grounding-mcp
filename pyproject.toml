@@ -11,20 +11,16 @@ requires-python = ">=3.11,<3.13"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Local Grounding MCP contributors" }]
 keywords = ["mcp", "visual-grounding", "browser-agents", "local-inference", "computer-use"]
-classifiers = [
-  "Development Status :: 2 - Pre-Alpha",
-  "License :: OSI Approved :: Apache Software License",
-  "Programming Language :: Python :: 3.11",
-  "Topic :: Scientific/Engineering :: Artificial Intelligence",
-]
-dependencies = [
-  "mcp>=1.28,<2",
-  "torch",
-  "torchvision",
-  "transformers",
-  "pillow",
-  "qwen-vl-utils",
-]
+classifiers = ["Development Status :: 2 - Pre-Alpha","License :: OSI Approved :: Apache Software License","Programming Language :: Python :: 3.11","Topic :: Scientific/Engineering :: Artificial Intelligence"]
+dependencies = ["mcp>=1.28,<2","torch","torchvision","transformers","pillow","qwen-vl-utils"]
+
+[project.scripts]
+local-grounding-mcp = "local_grounding_mcp.cli:adapter_main"
+local-grounding-service = "local_grounding_mcp.cli:service_main"
+local-grounding-doctor = "local_grounding_mcp.cli:doctor_main"
+local-grounding-status = "local_grounding_mcp.cli:status_main"
+local-grounding-stop = "local_grounding_mcp.cli:stop_main"
+local-grounding-metrics = "local_grounding_mcp.cli:metrics_main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
