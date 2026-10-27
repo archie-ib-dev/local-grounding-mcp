@@ -26,6 +26,15 @@ dependencies = [
   "qwen-vl-utils",
 ]
 
+[project.scripts]
+local-grounding-mcp = "local_grounding_mcp.cli:adapter_main"
+local-grounding-service = "local_grounding_mcp.cli:service_main"
+local-grounding-doctor = "local_grounding_mcp.cli:doctor_main"
+local-grounding-status = "local_grounding_mcp.cli:status_main"
+local-grounding-stop = "local_grounding_mcp.cli:stop_main"
+local-grounding-metrics = "local_grounding_mcp.cli:metrics_main"
+local-grounding-config = "local_grounding_mcp.cli:config_main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
