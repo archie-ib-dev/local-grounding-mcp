@@ -8,9 +8,11 @@ mkdir -p "$(dirname "$VENV")" "$HOME/.local/bin"
 "$PYTHON" -m venv "$VENV"
 "$VENV/bin/python" -m pip install --upgrade pip
 "$VENV/bin/python" -m pip install "$REPO"
-for cmd in local-grounding-mcp local-grounding-service local-grounding-doctor local-grounding-status local-grounding-stop local-grounding-metrics; do
+for cmd in local-grounding-mcp local-grounding-service local-grounding-doctor local-grounding-status local-grounding-stop local-grounding-metrics local-grounding-config; do
   ln -sf "$VENV/bin/$cmd" "$HOME/.local/bin/$cmd"
 done
 echo "Installed to $VENV"
 echo "Run: local-grounding-doctor"
 echo "MCP examples: $REPO/examples/"
+echo "Generating MCP configuration snippets..."
+"$HOME/.local/bin/local-grounding-config"

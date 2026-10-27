@@ -43,3 +43,18 @@ def metrics_main():
     for key in ('visual_tokens','input_tokens','generated_tokens','preprocess_seconds','inference_seconds','total_grounding_seconds'):
         values=[float(row[key]) for row in located if row.get(key) is not None]
         if values: print(f'{key}: avg={sum(values)/len(values):.3f} total={sum(values):.3f}')
+
+def config_main():
+    home = Path.home().resolve()
+    output_dir = Path(os.environ.get("GROUNDING_CONFIG_DIR", str(home / ".config" / "local-grounding-mcp"))).expanduser()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    command_path = str(home / ".local" / "bin" / "local-grounding-mcp")
+    model_path = str(Path(os.environ.get("GROUNDING_MODEL_PATH", str(home / "Models" / "UGround-V1-2B"))).expanduser().resolve())
+    clients = {"claude-desktop": "claude-desktop", "antigravity": "antigravity"}
+    for filename, client_name in clients.items():
+        payload = {"mcpServers": {"local-grounding": {"command": command_path, "env": {"GROUNDING_CLIENT": client_name, "GROUNDING_MODEL_PATH": model_path}}}}
+        output_path = output_dir / f"{filename}.json"
+        output_path.write_text(json.dumps(payload, indent=2) + "\n")
+        output_path.chmod(0o600)
+        print(f"Generated: {output_path}")
+    print("Ready-to-paste snippets generated; merge local-grounding into existing MCP configuration.")

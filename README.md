@@ -48,3 +48,7 @@ Do not commit browser tokens, credentials, screenshots, local MCP configuration 
 ## Status
 
 This repository is under active development. Installation scripts, automated tests, model setup documentation, and complete third-party notices will be added before the first public release.
+
+## Generate MCP configuration snippets
+
+After installation, run `local-grounding-config`. It creates ready-to-paste snippets in `~/.config/local-grounding-mcp/` using absolute paths for the current user. It does not overwrite existing MCP client configuration.
